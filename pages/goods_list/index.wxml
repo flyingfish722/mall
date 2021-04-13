@@ -1,0 +1,54 @@
+<!--pages/goods_list/index.wxml-->
+<!-- 测试图片：https://img.ivsky.com/img/tupian/co/202009/11/xican-002.jpg -->
+<view>
+	<search_input></search_input>
+
+	<!-- bind设置监听事件
+  例如bindtap会监听tap事件，这个tap事件是组件点击时的默认触发事件。
+  我们也可以自定义子组件动作所触发的父组件事件，例如在下面的tab组件中，
+  设置binditemClick会监听子组件触发的itemClick事件，并且通过
+  handleItemClick函数来处理。子组件的触发方式见自定义组件components/tab/tab.js
+  -->
+	<tab tabs="{{tabs}}" binditemClick="handleItemClick">
+		<block wx:if="{{tabs[0].is_active}}">
+			<view class="goods_list">
+				<view class="good_info" wx:for="{{goodsList}}">
+					<navigator>
+						<view class="left_img">
+							<!-- view的高会比image大一点点，如果有需要可以额外进行设置来使得它们一样高，
+                比如设置view的高或者改变image的display：block -->
+							<!-- 可以把image组件看成一个相框，里面要放我们src指定的图片
+              mode指定了相框的样式，
+              mode: scallToFill 默认模式，图片会缩放以填满相框
+              mode: aspectFit，将图片保持纵横比缩放，使长边完全显示出来，相框大小是不变的
+              mode: widthFit，将图片保持纵横比缩放，使图片宽度与相框宽度一致，相框高度自动变化适应图片
+
+              tip：image组件有默认长宽320px，240px
+               -->
+							<image src="{{item.goods_small_logo}}" mode="widthFix" />
+						</view>
+						<view class="right_info">
+							<view class="good_name">
+								{{item.goods_name}}
+							</view>
+							<view class="good_price">
+								{{item.goods_price}}
+							</view>
+						</view>
+					</navigator>
+				</view>
+
+			</view>
+
+		</block>
+		<block wx:elif="{{tabs[1].is_active}}">
+			1
+		</block>
+		<block wx:elif="{{tabs[2].is_active}}">
+			2
+		</block>
+
+	</tab>
+
+</view>
+

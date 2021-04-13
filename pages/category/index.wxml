@@ -1,0 +1,101 @@
+<!--pages/category/index.wxml-->
+
+<view class='cate'>
+	<search_input></search_input>
+	<view class='cate_group'>
+		<scroll-view class="left_scroll" scroll-y="true">
+
+			<!-- bindtap 监听tap事件
+			data-paras=xxx 其中paras为要传递的参数名字，xxx为参数值
+			例如，data-index="1" 传递参数{"index": 1} -->
+			<view
+			 class="left_item {{index===currentIndex?'active':''}}"
+			 wx:for="{{leftMenu}}"
+			 wx:key="*this"
+			 bindtap="handleIndexTap"
+			 data-index="{{index}}"
+			>
+				{{ item }}
+			</view>
+			<view>1</view>
+			<view>2</view>
+			<view>3</view>
+			<view>4</view>
+			<view>5</view>
+			<view>6</view>
+			<view>7</view>
+			<view>8</view>
+			<view>9</view>
+			<view>10</view>
+			<view>11</view>
+			<view>12</view>
+			<view>13</view>
+			<view>14</view>
+			<view>15</view>
+			<view>16</view>
+			<view>17</view>
+			<view>18</view>
+			<view>19</view>
+			<view>20</view>
+		</scroll-view>
+		<scroll-view
+		 class="right_scroll"
+		 scroll-y="true"
+		 scroll-top="{{scrollTop}}"
+		>
+			<view
+			 class="right_group"
+			 wx:for="{{rightMenu}}"
+			 wx:for-index="index1"
+			 wx:for-item="item1"
+			>
+				<view class="cate_title">
+					<text class="delimiter">/</text>
+					<text class="title">{{item1.cat_name}}</text>
+					<text class="delimiter">/</text>
+				</view>
+				<view class="cate_list">
+					<navigator
+					 url="/pages/goods_list/index?cat_id={{item2.cat_id}}"
+					 hover-class="navigator-hover"
+					 open-type="navigate"
+					 wx:for="{{item1.children}}"
+					 wx:for-item="item2"
+					 wx:key="cat_id"
+					>
+						<image
+						 src="{{item2.cat_icon}}"
+						 mode="widthFix"
+						 lazy-load="false"
+						/>
+						<view class="cat_name">{{item2.cat_name}}</view>
+					</navigator>
+
+				</view>
+			</view>
+			<view>1</view>
+			<view>2</view>
+			<view>3</view>
+			<view>4</view>
+			<view>5</view>
+			<view>6</view>
+			<view>7</view>
+			<view>8</view>
+			<view>9</view>
+			<view>10</view>
+			<view>11</view>
+			<view>12</view>
+			<view>13</view>
+			<view>14</view>
+			<view>15</view>
+			<view>16</view>
+			<view>17</view>
+			<view>18</view>
+			<view>19</view>
+			<view>20</view>
+		</scroll-view>
+
+	</view>
+
+</view>
+

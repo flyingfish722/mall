@@ -1,0 +1,37 @@
+/* pages/goods_list/index.wxss */
+
+.goods_list{
+  .good_info{
+    padding: 5rpx 0;
+    border-bottom: 1rpx solid grey;
+    navigator{
+      display: flex;
+      
+      .left_img{
+        flex:2;
+        padding: 0 40rpx;
+      }
+      .right_info{
+        flex:3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        .good_name{
+          //这里不能设置flex属性，否则下面的文字显示会异常
+          //因为用flex使得组件缩放，会让更多的文字行显示出来
+
+          // 用-webkit-box布局实现文字超出隐藏
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2; //设置文字行数
+        }
+        .good_price{
+
+          color: red;
+        }
+      }
+    }
+    
+  }
+}

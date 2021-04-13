@@ -1,0 +1,19 @@
+<!--components/tab/tab.wxml-->
+<view>
+	<view class="tab_components">
+		<view
+		 class="tab_item {{item.is_active?'active':''}}"
+		 wx:for="{{tabs}}"
+		 wx:key="id"
+		 bindtap="tapItemClick"
+		 data-index="{{item.id}}"
+		>
+			{{item.name}}
+		</view>
+	</view>
+	<!-- slot用来接收页面中提供的wxml结构 -->
+	<view class="tab_content">
+		<slot></slot>
+	</view>
+</view>
+
